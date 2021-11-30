@@ -1,0 +1,13 @@
+GROUPE 1
+
+Les données du problème 
+-----------------------
+
+Le nombre premier              : 257
+La longueur du message de base : 21
+Le nombre de points ajoutés    : 22
+le nombre maximal d'erreurs    : 11
+qui sont situées avant l'indice: 24
+
+la liste reçue : 
+[67, 104, 38, 124, 113, 114, 132, 101, 116, 59, 101, 115, 152, 32, 151, 105, 110, 148, 98, 108, 101, 54, 97, 74, 85, 250, 141, 198, 244, 211, 18, 113, 172, 236, 191, 138, 68, 79, 198, 132, 167, 17, 86]
