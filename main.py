@@ -20,6 +20,13 @@ def ajouterPolynome(polynome1, polynome2):
         newPoly.append(polynome1[x]+polynome2[x])
     return newPoly
 
+def modinv(a, m):
+    g, x, y = euclide_etend_Kex(a, m)
+    if g != 1:
+        raise Exception('modular inverse does not exist')
+    else:
+        return x % m
+
 def multiplierPolynome(polynome1, polynome2):
     newPoly=[]
     for i in range((len(polynome1)+len(polynome2)-1)):
@@ -43,9 +50,4 @@ def grange(points):
     return L
 
 print(euclide_etend_Kex(235,7))
-# fonction euclide-étendu(a, b)
-#     si b = 0 alors
-#           retourner (a, 1, 0)
-#     sinon
-#           (d', u', v') := euclide-étendu(b, a mod b)
-#           retourner (d', v', u' - (a÷b)v')
+print(modinv(873,602))
