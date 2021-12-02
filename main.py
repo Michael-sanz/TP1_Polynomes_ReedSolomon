@@ -14,6 +14,35 @@ def euclide_etend_Kex(a,b):
         (pgcd,u,v)= euclide_etend_Kex(b, a%b)
         return (pgcd,v,u-(a//b)*v)
 
+def ajouterPolynome(polynome1, polynome2):
+    newPoly=[]
+    for x in range(len(polynome1)):
+        newPoly.append(polynome1[x]+polynome2[x])
+    return newPoly
+
+def multiplierPolynome(polynome1, polynome2):
+    newPoly=[]
+    for i in range((len(polynome1)+len(polynome2)-1)):
+        newPoly.append(0)
+    for x in range(len(polynome1)):
+        for y in range(len(polynome2)):
+            newPoly[x+y]+=polynome1[x]*polynome2[y]
+    return newPoly
+
+def grange(points):
+    L =[0]
+    for i, prem in enumerate(points):
+        l_j = [1]
+        for j,deux in enumerate(points):
+            if j!= i:
+                reste = (prem[0]-deux[0])
+                polyDivision = [(-1)*deux[0]/reste, 1/reste]
+                l_j=multiplierPolynome(l_j, polyDivision)
+        l_j =multiplierPolynome(l_j,[prem[1]])
+        L = ajouterPolynome(l_j,L)
+    return L
+
+print(euclide_etend_Kex(235,7))
 # fonction euclide-étendu(a, b)
 #     si b = 0 alors
 #           retourner (a, 1, 0)
