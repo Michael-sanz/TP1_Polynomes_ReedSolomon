@@ -44,16 +44,16 @@ def multiplierPolynome(polynome1, polynome2):
             newPoly[x+y]+=(polynome1[x]*polynome2[y])%NB_PREMIER
     return newPoly
 
-def grange(points):
+def lagrange(points):
     L =[0]
-    for i, prem in enumerate(points):
+    for i in points:
         l_j = [1]
-        for j,deux in enumerate(points):
+        for j in points:
             if j!= i:
-                reste = (prem[0]-deux[0])
-                polyDivision = [(-1)*deux[0]*modinv(reste, NB_PREMIER), 1*modinv(reste, NB_PREMIER)]
+                reste = (i[0]-j[0])
+                polyDivision = [(-1)*j[0]*modinv(reste, NB_PREMIER), 1*modinv(reste, NB_PREMIER)]
                 l_j=multiplierPolynome(l_j, polyDivision)
-        l_j =multiplierPolynome(l_j,[prem[1]])
+        l_j =multiplierPolynome(l_j,[i[1]])
         L = ajouterPolynome(l_j,L)
     return L
 
@@ -63,7 +63,8 @@ def convert(lst):
         dictionnary += [[i,j]]
     return dictionnary
 
-#valeur =[[0,1],[1,3],[2,7]]
+valeur =[[0,1],[1,3],[2,7]]
 
 if __name__ == '__main__':
-    print("Bonsoir Paris")
+    print(lagrange(valeur))
+    #print("Bonsoir Paris")
