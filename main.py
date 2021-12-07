@@ -1,10 +1,10 @@
 liste=[67, 104, 38, 124, 113, 114, 132, 101, 116, 59, 101, 115, 152, 32, 151, 105, 110, 148, 98, 108, 101, 54, 97, 74, 85, 250, 141, 198, 244, 211, 18, 113, 172, 236, 191, 138, 68, 79, 198, 132, 167, 17, 86]
 
-def euclide_etendue(a,b):
+def euclide_etendu(a,b):
     if (b==0):
         return a,1,0
     else:
-        (pgcd,u,v)= euclide_etendue(b, a%b)
+        (pgcd,u,v)= euclide_etendu(b, a%b)
         return (pgcd,v,u-(a//b)*v)
 
 def voirDiff(polynome1, polynome2):
@@ -27,7 +27,7 @@ def ajouterPolynome(polynome1, polynome2):
     return newPoly
 
 def modinv(a, m):
-    g, x, y = euclide_etend_Kex(a, m)
+    g, x, y = euclide_etendu(a, m)
     if g != 1:
         raise Exception('modular inverse does not exist')
     else:
