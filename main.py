@@ -1,5 +1,7 @@
 liste=[67, 104, 38, 124, 113, 114, 132, 101, 116, 59, 101, 115, 152, 32, 151, 105, 110, 148, 98, 108, 101, 54, 97, 74, 85, 250, 141, 198, 244, 211, 18, 113, 172, 236, 191, 138, 68, 79, 198, 132, 167, 17, 86]
 
+NB_PREMIER = 257
+
 def euclide_etendu(a,b):
     if (b==0):
         return a,1,0
@@ -29,7 +31,7 @@ def ajouterPolynome(polynome1, polynome2):
 def modinv(a, m):
     g, x, y = euclide_etendu(a, m)
     if g != 1:
-        raise Exception('modular inverse does not exist')
+        raise Exception('L\'inverse modulaire n\'existe pas')
     else:
         return x % m
 
@@ -49,13 +51,19 @@ def grange(points):
         for j,deux in enumerate(points):
             if j!= i:
                 reste = (prem[0]-deux[0])
-                polyDivision = [(-1)*deux[0]/reste, 1/reste]
+                polyDivision = [(-1)*deux[0]*modinv(reste, NB_PREMIER), 1*modinv(reste, NB_PREMIER)]
                 l_j=multiplierPolynome(l_j, polyDivision)
         l_j =multiplierPolynome(l_j,[prem[1]])
         L = ajouterPolynome(l_j,L)
     return L
 
+def convert(lst):
+    dictionnary = []
+    for i,j in enumerate(lst[::-1]):
+        dictionnary += [[i,j]]
+    return dictionnary
 
-valeur =[[0,1],[1,3],[2,7]]
+#valeur =[[0,1],[1,3],[2,7]]
 
-print(grange(valeur))
+if __name__ == '__main__':
+    print("Bonsoir Paris")
