@@ -25,7 +25,7 @@ def ajouterPolynome(polynome1, polynome2):
     newPoly=[]
     voirDiff(polynome1, polynome2)
     for x in range(len(polynome1)):
-        newPoly.append(polynome1[x]+polynome2[x])
+        newPoly.append((polynome1[x]+polynome2[x])%NB_PREMIER)
     return newPoly
 
 def modinv(a, m):
@@ -41,7 +41,7 @@ def multiplierPolynome(polynome1, polynome2):
         newPoly.append(0)
     for x in range(len(polynome1)):
         for y in range(len(polynome2)):
-            newPoly[x+y]+=polynome1[x]*polynome2[y]
+            newPoly[x+y]+=(polynome1[x]*polynome2[y])%NB_PREMIER
     return newPoly
 
 def grange(points):
