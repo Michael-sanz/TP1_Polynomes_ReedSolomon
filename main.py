@@ -8,6 +8,7 @@ NB_PREMIER = 257
 NB_POINTS_JUSTE = -19
 NB_POINTS_CONTENANT_ERREURS = 24
 
+
 def euclide_etendu(a,b):
     if (b==0):
         return a,1,0
@@ -75,8 +76,16 @@ def returnGrange(list):
     for i in randomList:
         # print(convert(i))
         new_list = listeJuste + convert(i)
-        print(lagrange(new_list))
-        # print(new_list)
+        print(new_list)
+
+def evalPoly(pol,x):
+    for degres in range(len(pol)):
+        coeef = pol[degres]
+        test = (pol[-1] * x + pol[-2]) % NB_PREMIER
+        # ((pol[-1] * x % NB_PREMIER) + (pol[-2] % NB_PREMIER) % NB_PREMIER)
+        print(str(coeef) + " " + str(degres))
+
+
 
 
 
@@ -84,5 +93,6 @@ def returnGrange(list):
 valeur =[[0,1],[1,3],[2,7]]
 
 if __name__ == '__main__':
-    returnGrange(liste_initial)
-    #print("Bonsoir Paris")
+    test = returnGrange(liste_initial)
+
+    evalPoly([74, 167, 85, 233, 255, 218, 44, 218, 25, 105, 30, 56, 253, 244, 176, 121, 109, 173, 93, 119, 145])
