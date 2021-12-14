@@ -73,9 +73,10 @@ def convert(lst):
 def returnGrange(list):
     listeJuste = convert(list)[NB_POINTS_JUSTE:]
     randomList = combinations(list[:NB_POINTS_CONTENANT_ERREURS], 2)
+    print(convert(list))
     for i in randomList:
         new_list = convert(i)+listeJuste
-        print(new_list)
+        #print(new_list)
         #evalPoly(lagrange(new_list),10)
 
 def evalPoly(pol,x):
@@ -88,3 +89,10 @@ def evalPoly(pol,x):
     return somme
 if __name__ == '__main__':
     returnGrange(liste_initial)
+    print(evalPoly(lagrange(convert(liste_initial)),33))
+
+    # Return grange retourne une liste de polynome ex: [[0,86]...]->[[n,m]]
+    # passer dans eval poly 'm' (evalpoly([returnGrange(liste_initial)->new_list],n))
+    # comparer si le m en indice n correspond à celui de la new list et si oui alors:
+    # cpt++
+    # si cpt == 32 alors bon polynome et le retourner
