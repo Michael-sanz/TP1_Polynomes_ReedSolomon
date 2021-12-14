@@ -75,29 +75,20 @@ def returnGrange(list):
     randomList = combinations(list[:NB_POINTS_CONTENANT_ERREURS], 2)
     for i in randomList:
         # print(convert(i))
-        new_list = convert(i)+listeJuste
-        # print(lagrange(new_list))
-        evalPolyDylan(lagrange(new_list),10)
+        new_list = listeJuste+convert(i)
+        #print(lagrange(new_list))
+        evalPoly(lagrange(new_list),10)
 
 def evalPoly(pol,x):
-    for degres in range(len(pol)):
-        coeef = pol[degres]
-        # test = (pol[-1] * x + pol[-2]) % NB_PREMIER
-        # ((pol[-1] * x % NB_PREMIER) + (pol[-2] % NB_PREMIER) % NB_PREMIER)
-        print(str(coeef) + " " + str(degres))
-
-
-
-def evalPolyDylan(pol,x):
-    tot=pol[0]
-    for p in pol:
-        tot += tot*x
-        tot += p
-    print(tot)
+    somme=0
+    for degre, coef in enumerate(pol[::-1]):
+        if degre==0:
+            somme+=coef
+        else:
+            somme=(somme*x+coef)%NB_PREMIER
+    return somme
 
 valeur =[[0,1],[1,3],[2,7]]
 
 if __name__ == '__main__':
-    # test = returnGrange(liste_initial)
-    returnGrange(liste_initial)
-    # evalPoly([74, 167, 85, 233, 255, 218, 44, 218, 25, 105, 30, 56, 253, 244, 176, 121, 109, 173, 93, 119, 145])
+    print(evalPolyDylan([2,3,1,6], 10))
