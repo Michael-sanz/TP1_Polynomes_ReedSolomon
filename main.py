@@ -74,10 +74,9 @@ def returnGrange(list):
     listeJuste = convert(list)[NB_POINTS_JUSTE:]
     randomList = combinations(list[:NB_POINTS_CONTENANT_ERREURS], 2)
     for i in randomList:
-        # print(convert(i))
-        new_list = listeJuste+convert(i)
-        #print(lagrange(new_list))
-        evalPoly(lagrange(new_list),10)
+        new_list = convert(i)+listeJuste
+        print(new_list)
+        #evalPoly(lagrange(new_list),10)
 
 def evalPoly(pol,x):
     somme=0
@@ -87,8 +86,5 @@ def evalPoly(pol,x):
         else:
             somme=(somme*x+coef)%NB_PREMIER
     return somme
-
-valeur =[[0,1],[1,3],[2,7]]
-
 if __name__ == '__main__':
-    print(evalPolyDylan([2,3,1,6], 10))
+    returnGrange(liste_initial)
