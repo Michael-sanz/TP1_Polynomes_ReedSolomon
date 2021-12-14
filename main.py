@@ -94,5 +94,5 @@ if __name__ == '__main__':
     # Return grange retourne une liste de polynome ex: [[0,86]...]->[[n,m]]
     # passer dans eval poly 'm' (evalpoly([returnGrange(liste_initial)->new_list],n))
     # comparer si le m en indice n correspond à celui de la new list et si oui alors:
-    # cpt++
+    # cpt+=(p(i)==L[i])
     # si cpt == 32 alors bon polynome et le retourner
