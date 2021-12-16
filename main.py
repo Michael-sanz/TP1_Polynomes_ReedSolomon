@@ -66,18 +66,25 @@ def lagrange(points):
 
 def convert(lst):
     dictionnary = []
-    for i,j in enumerate(lst[::-1]):
+    for i,j in enumerate(lst):
         dictionnary += [[i,j]]
     return dictionnary
 
 def returnGrange(list):
-    listeJuste = convert(list)[NB_POINTS_JUSTE:]
+    listeJuste = convert(list)[24:]
     randomList = combinations(list[:NB_POINTS_CONTENANT_ERREURS], 2)
-    print(convert(list))
-    for i in randomList:
-        new_list = convert(i)+listeJuste
-        #print(new_list)
-        #evalPoly(lagrange(new_list),10)
+    grange_list = lagrange(convert(list))
+    for rand in randomList:
+        new_list=convert(rand)+listeJuste
+        L=lagrange(new_list)
+        cpt=0
+        for i in range(len(grange_list)):
+            if(evalPoly(L,i)==list[i]):
+                cpt+=1
+        if(cpt==32):
+            print(new_list)
+
+        # evalPoly(lagrange(new_list),10)
 
 def evalPoly(pol,x):
     somme=0
@@ -89,7 +96,6 @@ def evalPoly(pol,x):
     return somme
 if __name__ == '__main__':
     returnGrange(liste_initial)
-    print(evalPoly(lagrange(convert(liste_initial)),33))
 
     # Return grange retourne une liste de polynome ex: [[0,86]...]->[[n,m]]
     # passer dans eval poly 'm' (evalpoly([returnGrange(liste_initial)->new_list],n))
