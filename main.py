@@ -63,6 +63,12 @@ def additionPolynome(polynome1, polynome2):
 
 
 def modinv(a, m):
+    """
+        Fonction d'inverse modulaire
+        :param polynome1: un nombre
+        :param polynome2: un nombre
+        :return: l'inverse modulaire de p suite à l'euclide étendue par m
+        """
     g, x, y = euclide_etendu(a, m)
     if g != 1:
         raise Exception('L\'inverse modulaire n\'existe pas')
@@ -135,7 +141,7 @@ def returnBonneListe(list):
                 cpt += 1
         if (cpt >= 32):
             return new_list
-            break
+
 
 
 def evalPoly(pol, x):
