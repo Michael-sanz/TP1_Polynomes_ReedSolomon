@@ -1,4 +1,7 @@
 from itertools import combinations
+"""
+Auteurs : Kevin Bonga, Mike Sanz et Dylan Monteiro
+"""
 
 """
 GLOBAL CONST
@@ -94,7 +97,7 @@ def multiplierPolynome(polynome1, polynome2):
 
 def lagrange(points):
     """
-    Fonction qui calcule la grande pour une liste de points
+    Fonction qui calcule la grange pour une liste de points
     :param points: la liste de points à calculer
     :return: la liste de points en paramètre après été calculer par la grange
     """
