@@ -50,7 +50,6 @@ def ajouterManquant(poly, diff):
     for i in range(diff):
         poly.append(0)
 
-
 def additionPolynome(polynome1, polynome2):
     """
     Fonction d'addition de polynome
@@ -64,7 +63,6 @@ def additionPolynome(polynome1, polynome2):
         newPoly.append((polynome1[x] + polynome2[x]) % NB_PREMIER)
     return newPoly
 
-
 def modinv(a, m):
     """
         Fonction d'inverse modulaire
@@ -77,7 +75,6 @@ def modinv(a, m):
         raise Exception('L\'inverse modulaire n\'existe pas')
     else:
         return x % m
-
 
 def multiplierPolynome(polynome1, polynome2):
     """
@@ -145,8 +142,6 @@ def returnBonneListe(list):
         if (cpt >= 32):
             return new_list
 
-
-
 def evalPoly(pol, x):
     """
     Fonction d'évaluation de polynome
@@ -177,7 +172,6 @@ def toPhrase(List):
 if __name__ == '__main__':
     print("Valeur de base : " + str(LISTE_INITIAL))
     print("Nombre premier : "+ str(NB_PREMIER))
-    print("Bon polynome : "+ str(returnBonneListe(LISTE_INITIAL)))
-    print(" ")
+    print("Bon polynome : "+ str(returnBonneListe(LISTE_INITIAL))+"\n")
     print("Réponse : ")
     toPhrase(lagrange(returnBonneListe(LISTE_INITIAL)))
